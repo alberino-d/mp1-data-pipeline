@@ -17,7 +17,7 @@ def load_csv(filepath):
     filepath is a Path object.
     """
     df = pd.read_csv(filepath)
-    logger.info(f"Loaded CSV file: fixtures/sample.csv ({len(df)} rows)")
+    logger.info(f"Loaded CSV file: {filepath} ({len(df)} rows)")
     return df
 
 
@@ -51,9 +51,9 @@ def load_data(filepath):
     if ext == '.csv':
         return load_csv(path)
     elif ext == '.json':
-        return load_csv(path)
+        return load_json(path)
     elif ext == '.yaml':
-        return load_csv(path)
+        return load_yaml(path)
     else:
         logger.error(f"Unsupported file format: {ext}")
         raise ValueError(f"Unsupported file format: {ext}")
